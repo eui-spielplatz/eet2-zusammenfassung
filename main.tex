@@ -1,14 +1,16 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{circuitikz}
+\usepackage{longtable}
 \usepackage{stmaryrd}
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[txtcentered=true, height=40pt, width=70pt]{thumbs}
 \usepackage{float}
 \usepackage{color}
+\usepackage{pbox}
+\usepackage[txtcentered=true, height=40pt, width=70pt]{thumbs}
 \usepackage[left=2.5cm, top=2.5cm, right=3cm]{geometry}
 \usepackage[justification=centering]{caption}
 \DeclareGraphicsExtensions{.png}
@@ -57,7 +59,27 @@
 \end{figure}
 
 \subsection*{Kenngrößen}
+\begin{center}
+\bgroup
+\begin{longtable}{r p{12cm}}
+	\textbf{Kippunkt} & Arbeitspunkt des maximalen Drehmoments (\textit{Kippmoment $M_{iK}$}), welches die Maschine abgeben kann (bzw. im Generatorbetrieb aufnehmen kann). Es tritt der \textit{Kippschlupf} $s_K$ auf, wobei ein Zusammenhang über die Kloss'sche Formel gegeben ist. \\
+	\textbf{Leerlaufpunkt} & Arbeitspunkt, an dem keine elektrische / mechanische Leistung umgesetzt wird. Es gilt $s = 0$ für den Schlupf und $M_i = 0$ für das Drehmoment, die Maschine dreht sich mit ihrer \textit{Leerlaufdrehzahl} $n_0 = \frac{\Omega_0}{2\pi}$. \\
+	\textbf{Nennpunkt} & Arbiträr festgelegter, vorgesehener Betriebspunkt. Häufig dürfen Statorstrom und -spannung diese Nennwerte nicht überschreiten. Typischerweise $s = 2\dots4\%$. \\
+	\textbf{Anlaufpunkt} & Punkt, an dem die ASM stillsteht, d.h. $s = 1$. Das \textit{Anlaufdrehmoment} berechnet sich mit der Kloss'schen Formel. \\
+	\textbf{Motorbereich} & ASM dreht sich langsamer als $n_0$ vorwärts, d.h. $0 \leq s \leq 1$, $P_{mech} \approx P_{el} > 0$. \\
+	\textbf{Generatorbereich} & ASM dreht sich schneller als $n_0$ vorwärts, d.h. $s < 0$, $P_{mech} \approx P_{el} < 0$. \\
+	\pbox{20cm}{\textbf{Gegenstrom-} \\ \textbf{bremsbereich}} & ASM dreht sich rückwärts, d.h. $s > 1$, $P_{mech} < 0$ und $P_{el} > 0$.
+\end{longtable}
+\egroup
+\end{center}
+
 \subsection*{Stromortskurve (Heylandkreis)}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/asynchronmaschine_heylandkreis.pdf}
+	\caption*{}
+\end{figure}
+
 \subsection*{Momentenkennlinie}
 \subsection*{Formeln}
 
