@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{circuitikz}
 \usepackage{stmaryrd}
 \usepackage{titlesec}
 \usepackage{graphicx}
@@ -28,6 +29,37 @@
 \newpage
 \section*{Asynchronmaschine}
 \fancythumb{ASM}{red}
+\subsection*{Einphasiges Ersatzschaltbild}
+\begin{figure}[h]\centering
+	\begin{circuitikz}[european, scale=1, font=\large]
+	\draw
+		(0,3)
+		to [short, i=$\underline{I}_1$, o-](1.0,3)
+		to [L=$L_{\sigma1}$](3,3)
+		to [short](4.0,3)
+		to [L=$L_{h1}$, i>_=$\underline{I}_{m1}$, *-*] (4,0)
+		(4.0,3.0)
+		to [L=$L_{\sigma2}'$](7.0,3.0)
+		to [R=$R_{2}' ~ \frac{1}{s}$, i>^=$\underline{I}_1^i$](10.0,3)
+		to [R, l_=$R_{2Z}' ~ \frac{1}{s}$] (10.0,0) 
+		to [short, -o]	(0,0);
+
+	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+	\end{circuitikz}
+	\caption*{Man beachte die schlupfabhängigen Widerstände}
+\end{figure}
+
+\subsection*{Leistungsbilanz}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/asynchronmaschine_leistungsbilanz.pdf}
+	\caption*{Sonstige Verluste vernachlässigt, mit $I_2$…Läuferstrom, häufig gilt $R_{2Z} = 0$}
+\end{figure}
+
+\subsection*{Kenngrößen}
+\subsection*{Stromortskurve (Heylandkreis)}
+\subsection*{Momentenkennlinie}
+\subsection*{Formeln}
 
 \newpage
 \section*{Synchronmaschine}
