@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{circuitikz}
 \usepackage{longtable}
+\usepackage{multicol}
 \usepackage{stmaryrd}
 \usepackage{titlesec}
 \usepackage{graphicx}
@@ -18,6 +19,14 @@
 \newcommand{\fancythumb}[2]{
 	\addthumb{#1}{\large\sffamily\textbf{\space\space#1\vspace{5pt}}}{white}{#2}
 }
+
+\newcommand{\fancyformula}[2]{
+	\raggedright\sffamily\textbf{#1}
+	#2
+}
+
+% Subsections with letters (for appendix)
+\renewcommand{\thesubsection}{\Alph{subsection}}
 
 \pagenumbering{arabic}
 \titleformat*{\section}{\sffamily\huge\bfseries}
@@ -77,11 +86,62 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/asynchronmaschine_heylandkreis.pdf}
-	\caption*{}
+	\caption*{Der Schlupf auf dem Kreisbogen kann entsprechend Anhang \ref{ssec:appendix_asm_slip} abgelesen werden}
 \end{figure}
 
 \subsection*{Momentenkennlinie}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/asynchronmaschine_kennlinie.pdf}
+	\caption*{Der Verlauf der Kennlinie ist durch die Kloss'sche Formel gegeben}
+\end{figure}
+
 \subsection*{Formeln}
+\begin{multicols}{2}
+\fancyformula{Schlupf}{
+	\[
+		s = 1 - \frac{n}{n_0}
+	\]
+}
+
+\fancyformula{Mech. und el. Winkelgeschwindigkeit}{
+	\[
+		\Omega_0 = \frac{\omega_0}{p}
+	\]
+}
+
+\fancyformula{Kloss'sche Formel}{
+	\[
+		\frac{M_i}{M_{iK}} = \frac{2}{\frac{s}{s_K} + \frac{s_K}{s}}
+	\]
+}
+
+\fancyformula{Kippschlupf ($\Leftrightarrow$ Kloss'sche Formel)}{
+	\[
+		s_K = s~\left( \frac{M_{iK}}{M_i} \pm \sqrt{\left( \frac{M_{iK}}{M_i} \right)^2 - 1} \right)
+	\]
+}
+
+\fancyformula{Rotordrehstromfrequenz}{
+	\[
+		\omega_2 = s ~ \omega_1
+	\]
+}
+
+\fancyformula{Frequenzumrichterbetrieb bei $\omega_1$ und $U_1$}{
+	\[
+		\frac{n_0}{n_{0N}} = \frac{\omega_1}{\omega_{1N}} ~~ \mathrm{,} ~~ \frac{s_K}{s_{KN}} = \frac{\omega_{1N}}{\omega_1} ~~ \mathrm{,} ~~ \frac{M_{iK}}{M_{iKN}} = \left(\frac{U_1 ~ \omega_{1N}}{U_{1N} ~ \omega_1}\right)^2
+	\]
+}
+
+\fancyformula{Proportionalitäten}{
+	\[
+		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_1}{P_{1N}} \quad \mathrm{und} \quad \frac{-I_{1B}}{I_{1WN}} = \frac{Q_1}{P_{1N}}
+	\]
+}
+
+\sffamily{\textbf{Verweis}}: \rmfamily Weitere Formeln zu elektrischen Größen und zum Läuferzusatzwiderstand $R_{2Z}$ im Umdruck.
+\end{multicols}
 
 \newpage
 \section*{Synchronmaschine}
@@ -98,7 +158,7 @@
 \newpage
 \section*{Anhang}
 \fancythumb{Anhang}{black}
-\subsection*{Herleitung Schlupfgerade Asynchronmaschine}
+\subsection{Herleitung Schlupfgerade Asynchronmaschine} \label{ssec:appendix_asm_slip}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/asynchronmaschine_schlupfgerade_verschoben.pdf}
