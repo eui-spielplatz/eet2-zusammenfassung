@@ -21,6 +21,7 @@
 }
 
 \newcommand{\fancyformula}[2]{
+	\small
 	\raggedright\sffamily\textbf{#1}
 	#2
 }
@@ -32,6 +33,7 @@
 \titleformat*{\section}{\sffamily\huge\bfseries}
 \titleformat*{\subsection}{\sffamily\Large\bfseries}
 \titleformat*{\subsubsection}{\sffamily\large\bfseries}
+\setlength{\multicolsep}{4.0pt}
 
 \begin{document}
 \section*{Gleichstrommaschine}
@@ -140,8 +142,16 @@
 	\]
 }
 
-\sffamily{\textbf{Verweis}}: \rmfamily Weitere Formeln zu elektrischen Größen und zum Läuferzusatzwiderstand $R_{2Z}$ im Umdruck.
+\sffamily{\textbf{Verweis:}} \rmfamily Weitere Formeln zu elektrischen Größen und zum Läuferzusatzwiderstand $R_{2Z}$ im Umdruck.
 \end{multicols}
+
+\raggedright
+\vspace{12pt}
+\footnotesize
+\begin{tabular}{r p{13cm}}
+	\sffamily\textbf{Indizes:} & \rmfamily \textbf{0} = Leerlauf, \textbf{1} = Stator, \textbf{2} = Rotor, \textbf{K} = Kipppunkt, \textbf{N} = Nennbetrieb, \textbf{W} = Wirkstrom, \textbf{B} = Blindstrom, \textbf{i} = inneres Drehmoment
+\end{tabular}
+\normalsize
 
 \newpage
 \section*{Synchronmaschine}
