@@ -160,6 +160,81 @@
 \newpage
 \section*{Transformator}
 \fancythumb{Trafo}{olive}
+\subsection*{Schaltgruppen}
+\subsection*{Ersatzschaltbilder}
+\subsubsection*{Vollständiges Ersatzschaltbild ohne idealen Transformator}
+\begin{figure}[h]\centering
+	\begin{circuitikz}[european, scale=1, font=\large]
+	\draw
+		(0,3)
+		to [short, i=$\underline{I}_1$, o-](1.0,3)
+		to [R=$R_1$](3, 3)
+		to [L=$L_{\sigma1}$](6,3)
+		to [L=$L_{h1}$, i>^=$\underline{I}_{m1}$, *-*] (6,0)
+		(6.0,3.0)
+		to [L=$L_{\sigma2}'$](8.9,3)
+		to [short, i>^=$\underline{I}_1^i$](9.1,3)
+		to [R=$R_{2}'$, -o](12.0,3)
+		to [short, i<^=$\underline{I}_2'$](14,3)
+		to [R, l=$\underline Z_V'$](14,0)
+		to [short, -o](12,0)
+		to [short, -o](0,0);
+
+	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+	\draw[->, >=latex] (12,2.8) -- (12,0.2) node [pos=0.5, left] {$\underline U_2'$};
+	\draw[->, >=latex] (5.5,2.5) -- (5.5,0.5) node [pos=0.5, left] {$\underline U_{h1} = \underline U_{h2}'$};
+	\end{circuitikz}
+	\caption*{Gestrichene ($'$) Größen sind auf die Primärseite bezogen}
+\end{figure}
+
+\subsubsection*{Vereinfachtes Ersatzschaltbild 1. Art}
+Näherung $|\underline I_{m1}| \ll |\underline I_1^i|$ ergibt mit $R_k = R_1 + R_2' \quad \mathrm{und} \quad L_k = L_{\sigma1} + L_{\sigma2}'$
+\begin{figure}[h]\centering
+	\begin{circuitikz}[european, scale=1, font=\large]
+	\draw
+		(0,3)
+		to [short, i=$\underline{I}_1$, o-](1.0,3)
+		to [L=$L_{h1}$, i>^=$\underline{I}_{m1}$, *-*] (1,0)
+		(1.0,3.0)
+		to [R=$R_k$](4,3)
+		to [L=$L_k$, -o](7,3)
+		to [short, i<^=$\underline{I}_2'$](9,3)
+		to [R, l=$\underline Z_V'$] (9,0)
+		to [short, -o](7,0)
+		to [short, -o]	(0,0);
+
+	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+	\draw[->, >=latex] (7,2.8) -- (7,0.2) node [pos=0.5, left] {$\underline U_2'$};
+	\end{circuitikz}
+\end{figure}
+
+\subsubsection*{Vereinfachtes Ersatzschaltbild 2. Art}
+Näherung $|\underline I_{m1}| \approx 0$ ergibt:
+\begin{figure}[H]\centering
+	\begin{circuitikz}[european, scale=1, font=\large]
+	\draw
+		(0,3)
+		to [short, i=$\underline{I}_1$, o-](1.0,3)
+		to [R, l=$\underline Z_k \textnormal{=} R_k + j \omega L_k$, -o](4,3)
+		to [short](5,3)
+		to [R, l=$\underline Z_V'$] (5,0)
+		to [short, -o](4,0)
+		to [short, -o](0,0);
+
+	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+	\draw[->, >=latex] (4,2.8) -- (4,0.2) node [pos=0.5, left] {$\underline U_2'$};
+	\end{circuitikz}
+\end{figure}
+
+\subsection*{Leistungsbilanz}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/transformator_leistungsbilanz.pdf}
+	\caption*{Faktor $3$ ist spezifisch für dreiphasigen Drehstromtransformator}
+\end{figure}
+
+\subsection*{Kenngrößen}
+\subsection*{Parallelbetrieb}
 
 \newpage
 \section*{Drehstromverbraucher}
