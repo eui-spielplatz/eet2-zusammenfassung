@@ -188,9 +188,26 @@
 \newpage
 \section*{Transformator}
 \fancythumb{Trafo}{olive}
-%TODO: Schaltgruppen-Sektion und festgekoppelter Transformator
+%TODO: Festgekoppelter Transformator, mehr Schaltgruppen-Übertragungsverhältnisse
 
 \subsection*{Schaltgruppen}
+Typische Verschaltungen von Drehstromtransformatoren sind: Dreieckschaltung ($\triangle$, D), Sternschaltung ($\Yup$, Y) und Zickzackschaltung (Z).
+\vspace{.5em}
+
+Die Schaltgruppenbezeichnung besteht aus
+\begin{tabular}{r p{11cm}}
+	\textbf{1. Kennbuchstabe} & Schaltung der Oberspannungsseite (Y, D, Z) \\
+	\textbf{2. Kennbuchstabe} & Schaltung der Unterspannungsseite (y, d, z) \\
+	\textbf{3. Kennzahl $n$} & Stundenzahl, die Zeiger der Unterspannungsseite eilen denen der Oberspannungsseite um $n \cdot 30^\circ$ nach
+\end{tabular}
+
+\subsubsection*{Übertragungsverhältnis nach Schaltgruppe}
+\begin{tabular}{c c c c}
+	$\ddot u = \frac{w_1}{w_2}$ & $\ddot u = \frac{w_1}{\sqrt{3} ~ w_2}$ & $\ddot u = \frac{\sqrt{3} ~ w_1}{w_2}$ & $\ddot u = \frac{2 ~ w_1}{\sqrt{3} ~ w_2}$ \\ \hline \rule{0pt}{3ex}
+	Yy0 & Dy5 & Yd5 & Yz5 \\
+	Dd0 & Dy11 & Yd11
+\end{tabular}
+
 \subsection*{Ersatzschaltbilder}
 \subsubsection*{Vollständiges Ersatzschaltbild ohne idealen Transformator}
 \begin{figure}[h]\centering
