@@ -14,6 +14,7 @@
 \usepackage[txtcentered=true, height=40pt, width=70pt]{thumbs}
 \usepackage[left=2.5cm, top=2.5cm, right=3cm]{geometry}
 \usepackage[justification=centering]{caption}
+\usepackage{geometry}
 \DeclareGraphicsExtensions{.png}
 
 \newcommand{\fancythumb}[2]{
@@ -187,6 +188,8 @@
 \newpage
 \section*{Transformator}
 \fancythumb{Trafo}{olive}
+%TODO: Schaltgruppen-Sektion und festgekoppelter Transformator
+
 \subsection*{Schaltgruppen}
 \subsection*{Ersatzschaltbilder}
 \subsubsection*{Vollständiges Ersatzschaltbild ohne idealen Transformator}
@@ -260,8 +263,45 @@ Näherung $|\underline I_{m1}| \approx 0$ ergibt:
 	\caption*{Faktor $3$ ist spezifisch für dreiphasigen Drehstromtransformator}
 \end{figure}
 
+\subsection*{Impedanzwandlung}
+Das Übertragunsverhältnis $\ddot u$ wird (meist) so angegeben, dass $\ddot u > 1$. Für $\underline Z_{HV}$ auf der Hochspannungsseite und $\underline Z_{LV}$ auf der Niederspannungsseite gilt:
+\[
+	\underline Z_{HV} = \ddot u^2 ~ \underline Z_{LV}
+\]
+\textbf{Die auf die Hochspannungsebene bezogene Impedanz ist größer!}
+
 \subsection*{Kenngrößen}
+\subsubsection*{Kurzschlussspannung}
+Die \textit{Nennkurzschlussspannung} $\underline U_{1k}$ ist die Sternspannung, die an den Primärklemmen anliegt, wenn bei kurzgeschlossenen Sekundärklemmen an den Primärklemmen reeller Nennstrom fließt, d.h. $\arg(\underline I) = 0$. Wird $U_{1k}$ bzw. $u_{1k}$ rein betragsmäßig angegeben, so handelt es sich um den positiven Imaginärteil des Wertes ($\rightarrow$ Kurzschlussimpedanz ist reine Reaktanz).
+
+\vspace{.5em}
+Häufig wird die auf die Nennspannung bezogene \textit{relative Nennkurzschlussspannung} $\underline u_{kN}$ angegeben mit:
+\[
+	\underline u_{kN} = \frac{\underline U_{1kN}}{U_{1N}} = \frac{\sqrt{3} ~ \underline U_{1k\Yup}}{U_{1N}}
+\]
+
+\subsubsection*{Kurzschlussimpedanz}
+Die \textit{Kurzschlussimpedanz} $\underline Z_k$ entspricht der Impedanz im vereinfachten ESB 2. Art. Es gilt:
+\[
+	\underline Z_k = \underline u_{kN} ~ \frac{U_N^2}{S_N} \textnormal{, wobei $\underline Z_k$ bezogen auf Seite mit Spannung $U_N$}
+\]
+
+\raggedright
+\vspace{12pt}
+\footnotesize
+\begin{tabular}{r p{13cm}}
+	\sffamily\textbf{Indizes:} & \rmfamily \textbf{1} = Primärseite, \textbf{2} = Sekundärseite, \textbf{N} = Nennwert (insbes. $\triangle$-Schaltung), \textbf{k} = sekundärseitiger Kurzschluss
+\end{tabular}
+\normalsize
+
 \subsection*{Parallelbetrieb}
+Parallelbetrieb ist erlaubt wenn
+\begin{itemize}
+\item Gleiches Übersetzungsverhältnis
+\item Gleiche Stundenzahl der Schaltgruppe
+\item Keiner der Transformatoren wird außerhalb des zulässigen Betriebsbereichs betrieben (die Ströme teilen sich nach dem ESB 2. Art gemäß den Kurzschlussimpedanzen auf \mbox{$\rightarrow$ Stromteiler}).
+\end{itemize}
+Die Belastung der Transformatoren erfolgt automatisch proportional zu den Nennleistungenen, wenn beide die gleichen (relativen) Kurzschlussspannungen aufweisen.
 
 \newpage
 \section*{Drehstromverbraucher}
