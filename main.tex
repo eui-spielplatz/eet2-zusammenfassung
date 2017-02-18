@@ -68,7 +68,7 @@
 \subsection*{Leistungsbilanz}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{img/gleichstrommaschine_leistungsbilanz.pdf}
+	\includegraphics[width=0.6\textwidth]{img/gleichstrommaschine_leistungsbilanz.pdf}
 	\caption*{Hier gilt die Annahme $R_V = 0$, d.h. kein Vorschaltwiderstand}
 \end{figure}
 
@@ -89,6 +89,59 @@
 \end{center}
 
 \subsection*{Momentenkennlinie}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/gleichstrommaschine_kennlinie.pdf}
+	\caption*{Der Verlauf der Kennlinie ist bei Fremd- / Permanenterregung linear}
+\end{figure}
+
+\subsection*{Beeinflussung der Kennlinie}
+Sei hier jeweils $M_{stN}$ (Stillstandsdrehmoment für Nennbetrieb, d.h. für $R_V = 0$, $U = U_N$ und $\Phi = \Phi_N$) schon bekannt
+
+\subsubsection*{Durch Ankervorschaltwiderstand $R_V$}
+Seien $U = U_N$ und $\Phi = \Phi_N$ konstant.
+
+\vspace{.5em}
+\raggedright
+$\rightarrow$ In den Formeln muss $R_a$ durch $R_a + R_v$ ersetzt werden!
+
+\vspace{.5em}
+\raggedright
+Das Stillstandsdrehmoment wird kleiner, die Leerlaufdrehzahl bleibt jedoch gleich und die Kennlinie bleibt eine Gerade.
+\[
+	\frac{M_i}{M_{stN}} = \frac{1}{1 + \frac{R_v}{R_a}} ~ s
+\]
+
+\subsubsection*{Durch Ankerspannungsänderung}
+Seien $R_V = 0$ und $\Phi = \Phi_N$ konstant.
+
+\vspace{.5em}
+\raggedright
+$\rightarrow$ In den Formeln wird $U$ verändert!
+
+\vspace{.5em}
+\raggedright
+Eine Spannungsänderung verschiebt die Kennlinie nach oben / unten.
+\begin{align*}
+	\frac{M_i}{M_{stN}} &= s + \frac{U}{U_N} - 1 \\
+		&= \frac{U}{U_N} - \frac{\Omega}{\Omega_N}
+\end{align*}
+
+\subsubsection*{Durch Flussänderung}
+Seien $R_V = 0$ und $U = U_N$ konstant.
+
+\vspace{.5em}
+\raggedright
+$\rightarrow$ In den Formeln wird $\Phi$ verändert!
+
+\vspace{.5em}
+\raggedright
+Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Leerlaufdrehzahl.
+\begin{align*}
+	\frac{M_i}{M_{stN}} &= \left(\frac{\Phi}{\Phi_N}\right)^2 ~ s + \frac{\Phi}{\Phi_N} - \left(\frac{\Phi}{\Phi_N} \right)^2 \\
+		&= \frac{\Phi}{\Phi_N} - \left(\frac{\Phi}{\Phi_N}\right)^2 ~ \frac{\Omega}{\Omega_{\ell N}}
+\end{align*}
+
 
 \subsection*{Formeln}
 \textbf{Es gelte hier überall $R_V = 0$!}
@@ -149,7 +202,7 @@
 \vspace{12pt}
 \footnotesize
 \begin{tabular}{r p{13cm}}
-	\sffamily\textbf{Indizes:} & \rmfamily \textbf{i} = Inneres Drehmoment, \textbf{$\ell$} = Leerlauf, \textbf{N} = Spannung hat Nennwert, \textbf{a} = Anker (Rotor), \textbf{e} = Erreger (Stator), \textbf{st} = Stillstand
+	\sffamily\textbf{Indizes:} & \rmfamily \textbf{i} = Inneres Drehmoment, \textbf{$\ell$} = Leerlauf, \textbf{N} = Nennbetrieb, d.h. $U = U_N$, $R_V = 0$ und $\Phi = \Phi_N$, \textbf{a} = Anker (Rotor), \textbf{e} = Erreger (Stator), \textbf{st} = Stillstand
 \end{tabular}
 \normalsize
 
@@ -413,6 +466,7 @@ Die Synchornmaschine weißt bei jedem abgegebenen oder abverlangten Moment unter
 		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_i}{P_{iN}}
 	\]
 }
+\rmfamily
 
 \newpage
 \section*{Transformator}
@@ -465,7 +519,7 @@ Die Schaltgruppenbezeichnung besteht aus
 
 \subsubsection*{Vereinfachtes Ersatzschaltbild 1. Art}
 Näherung $|\underline I_{m1}| \ll |\underline I_1^i|$ ergibt mit $R_k = R_1 + R_2' \quad \mathrm{und} \quad L_k = L_{\sigma1} + L_{\sigma2}'$
-\begin{figure}[h]\centering
+\begin{figure}[H]\centering
 	\begin{circuitikz}[european, scale=1, font=\large]
 	\draw
 		(0,3)
@@ -541,6 +595,7 @@ Die \textit{Kurzschlussimpedanz} $\underline Z_k$ entspricht der Impedanz im ver
 \normalsize
 
 \subsection*{Parallelbetrieb}
+\rmfamily
 Parallelbetrieb ist erlaubt wenn
 \begin{itemize}
 \item Gleiches Übersetzungsverhältnis
