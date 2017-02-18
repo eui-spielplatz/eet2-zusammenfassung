@@ -358,10 +358,9 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\node at (8,-2) (fest_SM){festgekoppelte SM};
 	\end{circuitikz}
 \end{figure}
-
 \subsubsection*{Ständerseitiges ESB 1. Art}
-\begin{figure}[h]\centering
-	\begin{circuitikz}[european, scale=1, font=\large]
+\begin{figure}[H]\centering
+	\begin{circuitikz}[european, scale=0.5, transform shape, font=\large]
 	\draw
 		(0,3) to [short, i=$i_1$, o-](1,3)
 		to [R=$R_1$](3, 3)
@@ -375,12 +374,12 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 		to [short] (6,0);
 	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$u_1$};
 	\end{circuitikz}
-	\caption*{$i^i_1=\hat{i}^i_1\cdot cos(\omega t) = \dfrac{2}{3}\cdot\dfrac{w_e\cdot\xi_e}{w_1\cdot\xi_1}\cdot I_e\cdot cos(\omega t)$}
+	\caption*{$i^i_1=\hat{i}^i_1~\cos(\omega~t) = \dfrac{2}{3}~\dfrac{w_e~\xi_e}{w_1~\xi_1}~I_e~\cos(\omega~t)$}
 \end{figure}
-\newpage
+
 \subsubsection*{Ständerseitiges ESB 2. Art}
-\begin{figure}[h]\centering
-	\begin{circuitikz}[european, scale=1, font=\large]
+\begin{figure}[H]\centering
+	\begin{circuitikz}[european, scale=0.5, transform shape, font=\large]
 	\draw
 		(0,3) to [short, i=$i_1$, o-](1,3)
 		to [R=$R_1$](3, 3)
@@ -394,11 +393,11 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$u_1$};
 	\draw[->, >=latex] (5,2.8) -- (5,0.2) node [pos=0.5, left] {$u_{h1}$};
 	\end{circuitikz}
-	\caption*{$u_p=\omega L_{h1}\cdot\dfrac{2}{3}\cdot\dfrac{w_e\cdot\xi_e}{w_1\cdot\xi_1}\cdot I_e\cdot sin(\omega t)$}
+	\caption*{$u_p=\omega~L_{h1}~\dfrac{2}{3}~\dfrac{w_e~\xi_e}{w_1~\xi_1}~I_e~\sin(\omega~t)$}
 \end{figure}
 
 \subsubsection*{Vereinfachung des ESB 2. Art}
-\begin{figure}[h]\centering
+\begin{figure}[H]\centering
 	\begin{circuitikz}[european, scale=1, font=\large]
 	\draw
 		(0,3) to [short, i=$\underline{I}_1$, o-](1,3)
@@ -415,7 +414,7 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 \subsection*{Leistungsbilanz}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{img/SM_Leistungsbilanz.pdf}
+	\includegraphics[width=0.7\textwidth]{img/SM_Leistungsbilanz.pdf}
 \end{figure}
 Die Leistung $P_e$ zur Erregung der Läuferspule geht vollständig verloren.\\
 Wenn der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i$), dann gilt die Vereinfachung des ESB 2. Art und $P_i = P_1$. 
@@ -426,14 +425,14 @@ Wenn der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i
 \end{figure}
 
 \textbf{Drehzahl $\Omega$ und $\omega$:}\\
-Elektrische Drehzahl $\omega = 2\pi\cdot f_N$, wobei $f_N$ die Netzfrequenz ist. $\rightarrow$ Läuferdrehzahl ist um den Faktor $\dfrac{1}{p}$ kleiner. $\Omega=\dfrac{\omega}{p}$\\
+Elektrische Drehzahl $\omega = 2~\pi~f_N$, wobei $f_N$ die Netzfrequenz ist. $\rightarrow$ Läuferdrehzahl ist um den Faktor $\dfrac{1}{p}$ kleiner. $\Omega=\dfrac{\omega}{p}$\\
 
 \textbf{Erregerstrom $I_e$:} \\ 
 Man spricht vom \textbf{untereregten} Betrieb, wenn die Maschine induktive Blindleistung aufnimmt bzw. kapazitive abgibt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die rechte Halbebene.\\
 Man spricht vom \textbf{übereregten} Betrieb, wenn die Maschine induktive Blindleistung abgibt bzw. kapazitive aufnimmt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die linke Halbebene.\\
 
 \subsection*{Momentenkennlinie}
-Die Synchornmaschine weißt bei jedem abgegebenen oder abverlangten Moment unterhalb des Polradwinkels $\dfrac{\pi}{2}$ die gleiche Drehzahl $\Omega$ auf. Es verändert sich lediglich der Polradwinkel $\theta$.
+Die Synchornmaschine weißt bei jedem abgegebenen oder abverlangten Moment unterhalb des Polradwinkels $\dfrac{\pi}{2}$ die gleiche Drehzahl $\Omega$ auf. Es verändert sich lediglich der Polradwinkel $\vartheta$.
 
 \begin{figure}[H]
 	\centering
@@ -442,22 +441,22 @@ Die Synchornmaschine weißt bei jedem abgegebenen oder abverlangten Moment unter
 \subsection*{Formeln}
 \fancyformula{Verhältnis mechanischer Polradwinkel zu elektrischem Polradwinkel:}{
 	\[
-		\alpha_p = \dfrac{\theta}{p}
+		\alpha_p = \dfrac{\vartheta}{p}
 	\]
 }
 
 \fancyformula{Verhältnis von $I_{1W}$ zum elektrischen Polradwinkel}{
 	\[
-		I_{1W}=I_1 \cdot cos(\phi)=\dfrac{U_p}{\omega L_1}sin(-\theta)=\dfrac{U_{1N}}{\omega L_1}\dfrac{I_e}{I_{e0}}sin(-\theta)
+		I_{1W}=I_1~\cos(\phi)=\dfrac{U_p}{\omega~L_1}~\sin(-\vartheta)=\dfrac{U_{1N}}{\omega~L_1}~\dfrac{I_e}{I_{e0}}~\sin(-\vartheta)
 	\]
 }
 
 \fancyformula{Drehmoment in Abhängigkeit von Polradwinkel}{
 	\[
-		M_i=M_{iK}sin(-\theta)=3\dfrac{p}{\omega^2L_1}U_1U_{1N}\dfrac{I_e}{I_{e0}}sin(-\theta)
+		M_i=M_{iK}~\sin(-\vartheta)=3~\dfrac{p}{\omega^2~L_1}~U_1~U_{1N}~\dfrac{I_e}{I_{e0}}~\sin(-\vartheta)
 	\]
 	\begin{center}
-	Wobei: $M_{iK}=3\dfrac{p}{\omega^2L_1}U_1U_{1N}\dfrac{I_e}{I_{e0}}$
+	Wobei: $M_{iK}=3~\dfrac{p}{\omega^2~L_1}~U_1~U_{1N}~\dfrac{I_e}{I_{e0}}$
 	\end{center}
 }
 
