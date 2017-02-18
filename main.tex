@@ -103,7 +103,7 @@ Seien $U = U_N$ und $\Phi = \Phi_N$ konstant.
 
 \vspace{.5em}
 \raggedright
-$\rightarrow$ In den Formeln muss $R_a$ durch $R_a + R_v$ ersetzt werden!
+$\rightarrow$ In den Gleichungen muss $R_a$ durch $R_a + R_v$ ersetzt werden!
 
 \vspace{.5em}
 \raggedright
@@ -117,22 +117,22 @@ Seien $R_V = 0$ und $\Phi = \Phi_N$ konstant.
 
 \vspace{.5em}
 \raggedright
-$\rightarrow$ In den Formeln wird $U$ verändert!
+$\rightarrow$ In den Gleichungen wird $U$ verändert!
 
 \vspace{.5em}
 \raggedright
 Eine Spannungsänderung verschiebt die Kennlinie nach oben / unten.
 \begin{align*}
 	\frac{M_i}{M_{stN}} &= s + \frac{U}{U_N} - 1 \\
-		&= \frac{U}{U_N} - \frac{\Omega}{\Omega_N}
+		&= \frac{U}{U_N} - \frac{\Omega}{\Omega_{\ell N}}
 \end{align*}
 
-\subsubsection*{Durch Flussänderung}
+\subsubsection*{Durch Flussänderung / Erregerstromänderung}
 Seien $R_V = 0$ und $U = U_N$ konstant.
 
 \vspace{.5em}
 \raggedright
-$\rightarrow$ In den Formeln wird $\Phi$ verändert!
+$\rightarrow$ In den Gleichungen wird $\Phi$ verändert!
 
 \vspace{.5em}
 \raggedright
@@ -143,7 +143,7 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 \end{align*}
 
 
-\subsection*{Formeln}
+\subsection*{Gleichungen}
 \textbf{Es gelte hier überall $R_V = 0$!}
 
 \begin{multicols}{2}
@@ -266,7 +266,7 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\caption*{Der Verlauf der Kennlinie ist durch die Kloss'sche Formel gegeben}
 \end{figure}
 
-\subsection*{Formeln}
+\subsection*{Gleichungen}
 \begin{multicols}{2}
 \fancyformula{Schlupf}{
 	\[
@@ -310,7 +310,7 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\]
 }
 
-\sffamily{\textbf{Verweis:}} \rmfamily Weitere Formeln zu elektrischen Größen und zum Läuferzusatzwiderstand $R_{2Z}$ im Umdruck.
+\sffamily{\textbf{Verweis:}} \rmfamily Weitere Gleichungen zu elektrischen Größen und zum Läuferzusatzwiderstand $R_{2Z}$ im Umdruck.
 \end{multicols}
 
 \raggedright
@@ -336,7 +336,7 @@ Detailliertere Ersatzschaltbilder sind in Anhang \ref{ssec:appendix_sm_diagrams}
 		to [L=$L_{1}$](3,3)
 		to [short](4,3)
 		to [V=$\underline U_p$](4,0)
-		to [short, o-](3,0)
+		to [short](3,0)
 		to [short, -o](0,0);
 	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$\underline{U}_1$};
 	\end{circuitikz}
@@ -356,12 +356,18 @@ Wenn der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i
 	\includegraphics[width=0.7\textwidth]{img/SM_Ortskurve.pdf}
 \end{figure}
 
-\subsubsection*{Mechanische ($\Omega$) und elektrische ($\omega$) Winkelgeschwindigkeit:}
+\subsubsection*{Mechanische ($\Omega$) und elektrische ($\omega$) Winkelgeschwindigkeit}
 Elektrische Drehzahl $\omega = 2~\pi~f_N$, wobei $f_N$ die Netzfrequenz ist. $\rightarrow$ Läuferdrehzahl ist um den Faktor $\dfrac{1}{p}$ kleiner. $\Omega=\dfrac{\omega}{p}$\\
 
-\subsubsection*{Erregerstrom $I_e$:}
+\subsubsection*{Erregerstrom $I_e$}
 Man spricht vom \textbf{untereregten} Betrieb, wenn die Maschine induktive Blindleistung aufnimmt bzw. kapazitive abgibt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die rechte Halbebene.\\
 Man spricht vom \textbf{übereregten} Betrieb, wenn die Maschine induktive Blindleistung abgibt bzw. kapazitive aufnimmt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die linke Halbebene.\\
+
+\subsubsection*{Leerlauferregerstrom $I_{e0} = I_I$}
+Der Leerlauferregerstrom ist der Erregerstrom, der fließen muss, um bei Nenndrehzahl und Nennspannung einen Betriebspunkt zu ermöglichen, bei dem kein Strom $I_1$ fließt, d.h. die induzierte Polradspannung $U_p$ entspricht der anliegenden Spannung $U_{1N}$.
+
+\vspace{0.5em}
+Bildlich gesprochen verläuft die Ortskurve des Statorstroms bei $I_e = I_{e0}$ durch den Ursprung.
 
 \subsection*{Momentenkennlinie}
 Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterhalb des Polradwinkels $\frac{\pi}{2}$ die gleiche Drehzahl $\Omega$ auf. Es verändert sich lediglich der Polradwinkel $\vartheta$.
@@ -370,7 +376,7 @@ Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterh
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/SM_Kennlinie.pdf}
 \end{figure}
-\subsection*{Formeln}
+\subsection*{Gleichungen}
 \fancyformula{Verhältnis mechanischer Polradwinkel zu elektrischem Polradwinkel:}{
 	\[
 		\alpha_p = \dfrac{\vartheta}{p}
@@ -395,12 +401,19 @@ Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterh
 	\]
 }
 
-\fancyformula{Proportionalitäten}{
+\fancyformula{Proportionalitäten für $U_1$ und $\Omega_0$ konstant}{
 	\[
-		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_i}{P_{iN}}
+		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_i}{P_{iN}} = \frac{P_1}{P_{1N}}
 	\]
 }
-\rmfamily
+
+\raggedright
+\vspace{12pt}
+\footnotesize
+\begin{tabular}{r p{13cm}}
+	\sffamily\textbf{Indizes:} & \rmfamily \textbf{i} = inneres Drehmoment, \textbf{W} = Wirkstrom / -leistung, \textbf{N} = Nennwert, \textbf{K} = Kippmoment, d.h. für $\vartheta = 90^\circ$, \textbf{0} (bei $\Omega_0$) = Rotationsgeschwindigkeit des Drehfelds, \textbf{1} = Stator, \textbf{e} = Erreger, \textbf{e0} = Leerlauferregerstrom
+\end{tabular}
+\normalsize
 
 \newpage
 \section*{Transformator}
