@@ -40,31 +40,118 @@
 \section*{Gleichstrommaschine}
 \fancythumb{GSM}{teal}
 
-\subsection*{Einphasiges Eersatzschaltbild}
+\subsection*{Einphasiges Ersatzschaltbild}
+\begin{figure}[h]\centering
+	\begin{circuitikz}[european, scale=1, font=\large]
+	\draw
+		(0,3)
+		to [R=$R_V$, n=Rv, o-](3,3)
+		to [short, i=$I~\textnormal{=}~I_a$, o-](4,3)
+		to [R=$R_a$](6,3)
+		to [short](7,3)
+		to [V=$U_i$](7,0)
+		to [short, -o](3,0)
+		to [short, -o](0,0)
+		(10,3)
+		to [short, o-](13,3)
+		to [R=$R_e$](13,0) 
+		to [short, -o](10,0)
+		(Rv.s) node[below] {\tiny(optional)};
+
+	\draw[->, >=latex] (0,2.8) -- (0,0.2) node [pos=0.5, left] {$U$};
+	\draw[->, >=latex] (3,2.8) -- (3,0.2) node [pos=0.5, left] {$U_a$};
+	\draw[->, >=latex] (10,2.8) -- (10,0.2) node [pos=0.5, left] {$U_e$};
+	\end{circuitikz}
+	\caption*{Ersatzschaltbild des Ankers (Rotor, links) und des Erregers (Stator, rechts)}
+\end{figure}
 
 \subsection*{Leistungsbilanz}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/gleichstrommaschine_leistungsbilanz.pdf}
+	\caption*{Hier gilt die Annahme $R_V = 0$, d.h. kein Vorschaltwiderstand}
+\end{figure}
 
-\subsection*{Kenngröße}
+\subsection*{Kenngrößen}
+\textbf{Es gelte hier überall $R_V = 0$!}
 
-\subsection*{Stromortskurve}
+\begin{center}
+\bgroup
+\begin{longtable}{r p{12cm}}
+	\textbf{Stillstand ($\Omega = 0$)} & Im Anker wird keine Spannung induziert, $U_i = 0$. Die Maschine bringt das Stillstandsdrehmoment $M_{st} = K ~ \Phi ~ \frac{U}{R_a} = K ~ \Phi ~ I_{st}$ auf. Im Ankerkreis fließt $I_{st} = \frac{U}{R_a}$ \\
+	\textbf{Leerlauf ($M_i = 0$)} & Es wird keine Leistung umgesetzt, d.h. $I = 0$. Folglich ist $U_i = U$. Für die Drehzahl folgt $\Omega_\ell = \frac{U}{K ~ \Phi}$. \\
+	\textbf{Nennwerte} & Es werden die maximalen Bemessungswerte $U_N$, $I_N$, $I_{eN}$ angegeben, die nicht längerfristig überschritten werden dürfen. \\
+	\textbf{Motorbereich} & GSM dreht sich langsamer als $n_{\ell N}$ vorwärts, d.h. $0 \leq s \leq 1$, $P_{mech} \approx P_{el} > 0$. \\
+	\textbf{Generatorbereich} & GSM dreht sich schneller als $n_{\ell N}$ vorwärts, d.h. $s < 0$, $P_{mech} \approx P_{el} < 0$. \\
+	\pbox{20cm}{\textbf{Gegenstrom-} \\ \textbf{bremsbereich}} & GSM dreht sich rückwärts, d.h. $s > 1$, $P_{mech} < 0$ und $P_{el} > 0$.
+\end{longtable}
+\egroup
+\end{center}
 
 \subsection*{Momentenkennlinie}
 
 \subsection*{Formeln}
+\textbf{Es gelte hier überall $R_V = 0$!}
+
 \begin{multicols}{2}
-\fancyformula{Schlupf}{
+\fancyformula{Grundgleichung: Induzierte Spannung}{
 	\[
-		s = 1 - \frac{\omega}{\omega_0}
+		U_i = K ~ \Phi ~ \Omega
 	\]
 }
 
-\fancyformula{inneres Drehmoment Formel}{
+\fancyformula{Grundgleichung: Inneres Drehmoment}{
 	\[
-		M_{iK}~\left(\omega\right) = \frac{K \phi}{R_{a}} U - \frac{K^2 \phi^2}{R_{a}^2}\omega
+		M_i = K ~ \Phi ~ I
+	\]
+}
+
+\fancyformula{Grundgleichung: Maschengleichung}{
+	\[
+		I = \frac{U - U_i}{R_a}
+	\]
+}
+
+\fancyformula{Grundgleichung: Erregerfeld-Hauptfluss}{
+	(nur bei Fremderregung)
+	\[
+		\Phi = c_1 ~ I_e
+	\]
+}
+
+\fancyformula{Schlupf}{
+	\[
+		s = 1 - \frac{n}{n_{\ell N}}
+	\]
+}
+
+\fancyformula{Drehmoment aus Stillstandsdrehmoment}{
+	\[
+		M_i = s ~ M_{stN}
+	\]
+}
+
+\fancyformula{Drehmoment aus Nenndrehmoment}{
+	\[
+		\frac{M_i}{M_{iN}} = \frac{s}{s_N}
+	\]
+}
+
+\fancyformula{Inneres Drehmoment}{
+	\[
+		M_i = \frac{K ~ \Phi}{R_a} ~ (U - K ~ \Phi ~ \Omega)
 	\]
 }
 
 \end{multicols}
+
+\raggedright
+\vspace{12pt}
+\footnotesize
+\begin{tabular}{r p{13cm}}
+	\sffamily\textbf{Indizes:} & \rmfamily \textbf{i} = Inneres Drehmoment, \textbf{$\ell$} = Leerlauf, \textbf{N} = Spannung hat Nennwert, \textbf{a} = Anker (Rotor), \textbf{e} = Erreger (Stator), \textbf{st} = Stillstand
+\end{tabular}
+\normalsize
 
 
 \newpage
