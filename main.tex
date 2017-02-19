@@ -353,11 +353,27 @@ Wenn der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i
 \subsection*{Stromortskurve und Kenngrößen}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{img/SM_Ortskurve.pdf}
+	\includegraphics[width=0.9\textwidth]{img/synchronmaschine_ortskurve.pdf}
 \end{figure}
 
+Man beachte, dass die Ortskurve relativ zu einer \textbf{rein reellen Spannung $\underline U_1$} gezeichnet wird, das heißt es gilt z.B. im Generatorbetrieb
+\[
+	\underline I_1 = \frac{U_1}{\textnormal{Lastimpedanz}}
+\]
+
+\subsubsection*{Ströme $I_I$ und $I_{II}$}
+Aus vereinfachtem ESB 2. Art folgt:
+\[
+	\underline I_1 = \frac{\underline U_1 - \underline U_p}{j\omega L_1} = \underbrace{-j ~ \frac{\underline U_1}{\omega L_1}}_{\underline I_I} + \underbrace{j ~ \frac{\underline U_p}{\omega L_1}}_{\underline I_{II}}
+\]
+
+Da $\underline U_1$ meist schon durch ein starres Netz vorgegeben ist, kann $\underline I_I$ als konstant betrachtet werden. $\underline I_{II}$ hingegen variiert mit sich ändernder Belastung (d.h. bei sich änderndem $\vartheta$) und sich änderndem Erregerstrom $I_e$.
+
 \subsubsection*{Mechanische ($\Omega$) und elektrische ($\omega$) Winkelgeschwindigkeit}
-Elektrische Drehzahl $\omega = 2~\pi~f_N$, wobei $f_N$ die Netzfrequenz ist. $\rightarrow$ Läuferdrehzahl ist um den Faktor $\dfrac{1}{p}$ kleiner. $\Omega=\dfrac{\omega}{p}$\\
+Elektrische Drehzahl $\omega = 2 \pi f_N$, wobei $f_N$ die Netzfrequenz ist.
+
+\vspace{.5em}
+$\rightarrow$ Läuferdrehzahl ist um den Faktor $\frac{1}{p}$ kleiner: $\Omega=\frac{\omega}{p}$\\
 
 \subsubsection*{Erregerstrom $I_e$}
 Man spricht vom \textbf{untereregten} Betrieb, wenn die Maschine induktive Blindleistung aufnimmt bzw. kapazitive abgibt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die rechte Halbebene.\\
@@ -385,7 +401,7 @@ Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterh
 
 \fancyformula{Verhältnis von $I_{1W}$ zum elektrischen Polradwinkel}{
 	\[
-		I_{1W}=I_1~\cos(\varphi)=\dfrac{U_p}{\omega L_1}~\sin(-\vartheta)=\dfrac{U_{1N}}{\omega L_1}~\dfrac{I_e}{I_{e0}}~\sin(-\vartheta)
+		I_{1W} = I_1~\cos(\varphi) = \dfrac{U_p}{\omega L_1}~\sin(-\vartheta)=\dfrac{U_{1N}}{\omega L_1}~\dfrac{I_e}{I_{e0}}~\sin(-\vartheta)
 	\]
 }
 
