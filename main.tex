@@ -15,6 +15,11 @@
 \usepackage[left=2.5cm, top=2.5cm, right=3cm]{geometry}
 \usepackage[justification=centering]{caption}
 \usepackage{geometry}
+
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usepackage{caption}
+\usepackage{subfigure}
 \DeclareGraphicsExtensions{.png}
 
 \newcommand{\fancythumb}[2]{
@@ -578,8 +583,162 @@ Parallelbetrieb ist erlaubt wenn
 Die Belastung der Transformatoren erfolgt automatisch proportional zu den Nennleistungenen, wenn beide die gleichen (relativen) Kurzschlussspannungen aufweisen.
 
 \newpage
+\begin{spacing}{0.1}
 \section*{Drehstromverbraucher}
 \fancythumb{\huge $\Yup ~ \mathrm{/} ~ \triangle$}{darkgray}
+
+\subsection*{Schaltbilder}
+\subsubsection*{Stern- und Leiterspannung in vektorieller Form}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\textwidth]{img/drehstrom_1.pdf}
+
+\subsubsection*{Sternschaltung \& Dreieckschaltung}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.26]{img/drehstrom_stern.pdf}
+\includegraphics[scale=0.26]{img/drehstrom_dreieck.pdf}
+\end{figure}
+
+\begin{multicols}{2}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_{12}=\frac{\underline{Z}_{1}*\underline{Z}_{2}}{\underline{Z}_{sd}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_{23}=\frac{\underline{Z}_{2}*\underline{Z}_{3}}{\underline{Z}_{sd}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_{31}=\frac{\underline{Z}_{3}*\underline{Z}_{1}}{\underline{Z}_{sd}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		mit \ \frac{1}{\underline{Z}_{sd}}=\frac{1}{\underline{Z}_1}+\frac{1}{\underline{Z}_2}+\frac{1}{\underline{Z}_3}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_1=\frac{\underline{Z}_{12}*\underline{Z}_{31}}{\underline{Z}_{ds}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_2=\frac{\underline{Z}_{23}*\underline{Z}_{12}}{\underline{Z}_{ds}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\underline{Z}_3=\frac{\underline{Z}_{31}*\underline{Z}_{23}}{\underline{Z}_{ds}}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		mit \ \underline{Z}_{ds}=\underline{Z}_{12}+\underline{Z}_{23}+\underline{Z}_{31}
+	\]
+}
+
+\end{multicols}{2}
+
+
+\end{figure}
+
+
+
+
+\subsection*{Kenngrößen}
+\begin{center}
+\bgroup
+\begin{longtable}{r p{12cm}}
+	\textbf{Wirkleistung P} & Die vom Verbraucher in andere Leistungstypen(z.B. mechanische, thermische oder chemische) umgewandelte elektrische Leistung. Sie entspricht dem Realteil der Scheinleistung im Leistungszeigerdiagramm. Einheit: Watt[W] \\
+	[2mm]
+	\textbf{Blindleistung Q} & Der Teil der Gesamtenergie, der im Netz mit induktiven Verbraucher(z.B. Spule, Transformator, Asynchronmotor) zum Aufbau des Magnetfeldes bzw. im Netz mit kapazitiven Verbraucher(z.B. Kondensator, Erdkabel) zum Aufbau des elektrischen Feldes verwendet und beim Abbau wieder ans Netz zurückgegeben wird, wird als Blindleistung genannt. Sie entspricht dem Imaginärteil der Scheinleistung im Leistungszeigerdiagramm. Einheit:Voltampere Reaktiv[var] \\
+	[2mm]
+	\textbf{Scheinleistung S} & Die Gesamtleistung von Wirkleistung und Blindleistung in der komplexen Ebene. Einheit: Voltampere[VA] \\
+	[2mm]
+	\pbox{20cm}{\textbf{Gegenstrom-} \\ \textbf{bremsbereich}} & In diesem Bereich sind die Richtungen von Läuferdrehung und Ständerdrehfeld entgegengesetzt. d.h. dass die Maschine sowohl mechanische(+) als auch elektrische(-) Leistung aufweist. Die beide Leistungen werden im Läufer in die Form von Kupferverlusten umgesetzt. \\
+	[6mm]
+	\pbox{20cm}{\textbf{Größen im} \\  \textbf{Drehstromnetz}} & Winkel: vom Strom zur Spannung \\
+\end{longtable}
+\egroup
+\end{center}
+
+\subsection*{Schein-,Wirk- \& Blindleistung Diagramm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/drehstrom_komplexe_leistung.pdf}
+\end{figure}
+\subsection*{Phasenwinkel der komplexen Netzwerke}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/drehstrom_Phasenwinkel.pdf}
+\end{figure}
+
+\subsection*{Formeln}(nur für symmetrischen Fall)
+\begin{multicols}{2}
+\fancyformula{}{
+	\[
+		\textnormal{Scheitelwert}=\sqrt{2} \ \textnormal{Effektivwert}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\textnormal{Gesamtscheinleistung}=3 \ \textnormal{Strangleistung}
+	\]
+}
+
+\fancyformula{}{
+	\[
+		\textnormal{Dreieckspannung}=\sqrt{3} \ \textnormal{Sternspannung}
+	\]
+}
+
+\fancyformula{Scheinleistung S}{
+	\[
+		\underline{S} = \underline{U}*\underline{I}\textsuperscript{*}=P+j*Q=|\underline{S}|(cos(\varphi)+j*sin{\varphi})
+	\]
+	$cos(\varphi): Leistungsfaktor;\ sin{\varphi}: Blindfaktor$
+}
+
+\fancyformula{Betrag von S}{
+	\[
+		S=|\underline{S}|=UI=\sqrt{P\textsuperscript{2}+Q\textsuperscript{2}}
+	\]
+}
+
+\fancyformula{Dreieckschaltung}{
+	\[
+		I_{Str}=\frac{I_L}{\sqrt{3}}; \ U_L=U_{Str}; \
+		\underline{S}=3*\underline{U}_{L}*\underline{I}\textsuperscript{*}_{Str}=\frac{9U_{Sn}\textsuperscript{2}}{\underline{Z}_n\textsuperscript{2}}=\frac{3U_{L}\textsuperscript{2}}{\underline{Z}_n}
+	\]
+}
+
+\fancyformula{Sternschaltung}{
+	\[
+		I_{Str}=I_L; \ U_{Str}=\frac{U_L}{\sqrt{3}}; \
+		\underline{S}=3*\underline{U}_{Str}*\underline{I}\textsuperscript{*}_{L}=\frac{3U\textsuperscript{2}_{Sn}}{\underline{Z_n}\textsuperscript{*}}=\frac{{U_L}\textsuperscript{2}}{\underline{Z}_n\textsuperscript{*}}
+	\]
+}
+\end{multicols}
+\end{spacing}
+
+
+
+
+
 
 \newpage
 \section*{Anhang}
