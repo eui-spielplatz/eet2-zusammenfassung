@@ -122,10 +122,9 @@ Seien $R_V = 0$ und $\Phi = \Phi_N$ konstant $\rightarrow$ In den Gleichungen wi
 \vspace{.5em}
 \raggedright
 Eine Spannungsänderung verschiebt die Kennlinie nach oben / unten.
-\begin{align*}
-	\frac{M_i}{M_{stN}} &= s + \frac{U}{U_N} - 1 \\
-		&= \frac{U}{U_N} - \frac{\Omega}{\Omega_{\ell N}}
-\end{align*}
+\[
+	\frac{M_i}{M_{stN}} = \frac{U}{U_N} - \frac{\Omega}{\Omega_{\ell N}}
+\]
 
 \subsubsection*{Durch Flussänderung / Erregerstromänderung}
 Seien $R_V = 0$ und $U = U_N$ konstant $\rightarrow$ In den Gleichungen wird $\Phi$ verändert!
@@ -174,9 +173,10 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\]
 }
 
-\fancyformula{Drehmoment aus Stillstandsdrehmoment}{
+\fancyformula{Proportionalitäten mit Schlupf}{
+	(rechtes $=$ gilt unabhängig von $U$, nur von $\Phi$ abhängig)
 	\[
-		M_i = s ~ M_{stN}
+		s = \frac{M_i}{M_{stN}} = \frac{I}{I_{stN}}
 	\]
 }
 
@@ -193,8 +193,16 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 }
 
 \fancyformula{Ankerwiderstand}{
+	(gilt auch bei Reibung)
 	\[
 		R_a = s ~ \frac{U}{I}
+	\]
+}
+
+\fancyformula{Proportionalität auf Nennpunkt bezogen}{
+	(gilt unabhängig von $U$, nur von $\Phi$ abhängig)
+	\[
+		\frac{M_i}{M_{iN}} = \frac{I}{I_N}
 	\]
 }
 \end{multicols}
