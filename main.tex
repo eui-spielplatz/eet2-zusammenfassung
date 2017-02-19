@@ -30,6 +30,10 @@
 % Subsections with letters (for appendix)
 \renewcommand{\thesubsection}{\Alph{subsection}}
 
+% Remove whitespace before and after longtable
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+
 \pagenumbering{arabic}
 \titleformat*{\section}{\sffamily\huge\bfseries}
 \titleformat*{\subsection}{\sffamily\Large\bfseries}
@@ -113,11 +117,7 @@ Das Stillstandsdrehmoment wird kleiner, die Leerlaufdrehzahl bleibt jedoch gleic
 \]
 
 \subsubsection*{Durch Ankerspannungsänderung}
-Seien $R_V = 0$ und $\Phi = \Phi_N$ konstant.
-
-\vspace{.5em}
-\raggedright
-$\rightarrow$ In den Gleichungen wird $U$ verändert!
+Seien $R_V = 0$ und $\Phi = \Phi_N$ konstant $\rightarrow$ In den Gleichungen wird $U$ verändert!
 
 \vspace{.5em}
 \raggedright
@@ -128,11 +128,7 @@ Eine Spannungsänderung verschiebt die Kennlinie nach oben / unten.
 \end{align*}
 
 \subsubsection*{Durch Flussänderung / Erregerstromänderung}
-Seien $R_V = 0$ und $U = U_N$ konstant.
-
-\vspace{.5em}
-\raggedright
-$\rightarrow$ In den Gleichungen wird $\Phi$ verändert!
+Seien $R_V = 0$ und $U = U_N$ konstant $\rightarrow$ In den Gleichungen wird $\Phi$ verändert!
 
 \vspace{.5em}
 \raggedright
@@ -196,6 +192,11 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\]
 }
 
+\fancyformula{Ankerwiderstand}{
+	\[
+		R_a = s ~ \frac{U}{I}
+	\]
+}
 \end{multicols}
 
 \raggedright
