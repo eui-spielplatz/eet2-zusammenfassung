@@ -72,17 +72,15 @@
 	\end{circuitikz}
 	\caption*{Ersatzschaltbild des Ankers (Rotor, links) und des Erregers (Stator, rechts)}
 \end{figure}
+Sofern nicht anders beschrieben, gilt überall die Annahme $R_V = 0$!
 
 \subsection*{Leistungsbilanz}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/gleichstrommaschine_leistungsbilanz.pdf}
-	\caption*{Hier gilt die Annahme $R_V = 0$, d.h. kein Vorschaltwiderstand}
 \end{figure}
 
 \subsection*{Kenngrößen}
-\textbf{Es gelte hier überall $R_V = 0$!}
-
 \begin{center}
 \bgroup
 \begin{longtable}{r p{12cm}}
@@ -143,8 +141,6 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 
 
 \subsection*{Gleichungen}
-\textbf{Es gelte hier überall $R_V = 0$!}
-
 \begin{multicols}{2}
 \fancyformula{Grundgleichung: Induzierte Spannung}{
 	\[
@@ -181,6 +177,12 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	(rechtes $=$ gilt unabhängig von $U$, nur von $\Phi$ abhängig)
 	\[
 		s = \frac{M_i}{M_{stN}} = \frac{I}{I_{stN}}
+	\]
+}
+
+\fancyformula{Induzierte Spannung aus Schlupf}{(folgt aus Leistungsbilanz)
+	\[
+		U_i = (1 - s) ~ U
 	\]
 }
 
