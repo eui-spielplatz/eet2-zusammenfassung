@@ -15,10 +15,9 @@
 \usepackage[left=2.5cm, top=2.5cm, right=3cm]{geometry}
 \usepackage[justification=centering]{caption}
 \usepackage{geometry}
-
+\usepackage[linewidth=1pt]{mdframed}
 \usepackage{setspace}
 \usepackage[german]{babel}
-\usepackage{caption}
 \usepackage{subfigure}
 \DeclareGraphicsExtensions{.png}
 
@@ -360,10 +359,10 @@ Detailliertere Ersatzschaltbilder sind in Anhang \ref{ssec:appendix_sm_diagrams}
 \subsection*{Leistungsbilanz}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{img/SM_Leistungsbilanz.pdf}
+	\includegraphics[width=0.7\textwidth]{img/synchronmaschine_leistungsbilanz.pdf}
 \end{figure}
 Die Leistung $P_e$ zur Erregung der Läuferspule geht vollständig verloren.\\
-Wenn der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i$), \textbf{dann gilt das vereinfachte ESB 2. Art und $P_i = P_1$}.
+Da der Widerstand auf der Ständerseite vernachlässigbar ist ($P_{Cu1} << P_i$), gilt das vereinfachte ESB 2. Art und $P_{el} = P_{mech, i}$.
 \subsection*{Stromortskurve und Kenngrößen}
 \begin{figure}[H]
 	\centering
@@ -393,7 +392,7 @@ $\rightarrow$ Läuferdrehzahl ist um den Faktor $\frac{1}{p}$ kleiner: $\Omega=\
 Man spricht vom \textbf{untereregten} Betrieb, wenn die Maschine induktive Blindleistung aufnimmt bzw. kapazitive abgibt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die rechte Halbebene.\\
 Man spricht vom \textbf{übereregten} Betrieb, wenn die Maschine induktive Blindleistung abgibt bzw. kapazitive aufnimmt $\rightarrow$ Der Stromzeiger $I_1$ zeigt in die linke Halbebene.\\
 
-\subsubsection*{Leerlauferregerstrom $I_{e0} = I_I$}
+\subsubsection*{Leerlauferregerstrom $I_{e0}$}
 Der Leerlauferregerstrom ist der Erregerstrom, der fließen muss, um bei Nenndrehzahl und Nennspannung einen Betriebspunkt zu ermöglichen, bei dem kein Strom $I_1$ fließt, d.h. die induzierte Polradspannung $U_p$ entspricht der anliegenden Spannung $U_{1N}$.
 
 \vspace{0.5em}
@@ -406,22 +405,37 @@ Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterh
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/SM_Kennlinie.pdf}
 \end{figure}
+
+\newpage
 \subsection*{Gleichungen}
-\fancyformula{Verhältnis mechanischer Polradwinkel zu elektrischem Polradwinkel:}{
+\begin{multicols}{2}
+\fancyformula{Mech. und el. Polradwinkel}{
 	\[
-		\alpha_p = \dfrac{\vartheta}{p}
+		\alpha_p = \frac{\vartheta}{p}
 	\]
 }
 
-\fancyformula{Verhältnis von $I_{1W}$ zum elektrischen Polradwinkel}{
+\fancyformula{Mech. und el. Winkelgeschwindigkeit}{
 	\[
-		I_{1W} = I_1~\cos(\varphi) = \dfrac{U_p}{\omega L_1}~\sin(-\vartheta)=\dfrac{U_{1N}}{\omega L_1}~\dfrac{I_e}{I_{e0}}~\sin(-\vartheta)
+		\Omega = \frac{\omega}{p}
 	\]
 }
 
-\fancyformula{Drehmoment in Abhängigkeit von Polradwinkel}{
+\fancyformula{Drehmoment-Polradwinkel-Kennlinie}{
 	\[
 		M_i=M_{iK}~\sin(-\vartheta)
+	\]
+}
+
+\fancyformula{Proportionalitäten aus Leistungsbilanz}{(für $U_1$ und $\Omega_0$ konstant)
+	\[
+		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_i}{P_{iN}} = \frac{P_1}{P_{1N}}
+	\]
+}
+
+\fancyformula{Skalierung Ortskurvenkreis}{
+	\[
+		\frac{I_e}{I_{e0}} = \frac{I_{II}}{I_I} = \frac{U_p}{U_{1N}}
 	\]
 }
 
@@ -431,11 +445,13 @@ Die Synchronmaschine weist bei jedem abgegebenen oder abverlangten Moment unterh
 	\]
 }
 
-\fancyformula{Proportionalitäten für $U_1$ und $\Omega_0$ konstant}{
+
+\fancyformula{Verhältnis von $I_{1W}$ zum elektrischen Polradwinkel}{
 	\[
-		\frac{M_i}{M_{iN}} = \frac{I_{1W}}{I_{1WN}} = \frac{P_i}{P_{iN}} = \frac{P_1}{P_{1N}}
+		I_{1W} = \frac{U_p}{\omega L_1} ~ \sin(-\vartheta)
 	\]
 }
+\end{multicols}
 
 \raggedright
 \vspace{12pt}
@@ -592,90 +608,83 @@ Die Belastung der Transformatoren erfolgt automatisch proportional zu den Nennle
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.55\textwidth]{img/drehstrom_1.pdf}
+\end{figure}
 
-\subsubsection*{Sternschaltung \& Dreieckschaltung}
+\subsubsection*{Sternschaltung \& Dreieckschaltung, $\triangle$-$\Yup$-Wandlung}
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.26]{img/drehstrom_stern.pdf}
-\includegraphics[scale=0.26]{img/drehstrom_dreieck.pdf}
+	\centering
+	\includegraphics[scale=0.26]{img/drehstrom_stern.pdf}
+	\includegraphics[scale=0.26]{img/drehstrom_dreieck.pdf}
 \end{figure}
 
 \begin{multicols}{2}
+\footnotesize
+\[
+	\underline{Z}_{12} = \frac{\underline{Z}_{1} ~ \underline{Z}_{2}}{\underline{Z}_{sd}}
+\]
+\[
+	\underline{Z}_{23} = \frac{\underline{Z}_{2} ~ \underline{Z}_{3}}{\underline{Z}_{sd}}
+\]
+\[
+	\underline{Z}_{31} = \frac{\underline{Z}_{3} ~ \underline{Z}_{1}}{\underline{Z}_{sd}}
+\]
 
-\fancyformula{}{
-	\[
-		\underline{Z}_{12}=\frac{\underline{Z}_{1}*\underline{Z}_{2}}{\underline{Z}_{sd}}
-	\]
-}
+\[
+	\textnormal{mit} \quad  \frac{1}{\underline{Z}_{sd}}=\frac{1}{\underline{Z}_1}+\frac{1}{\underline{Z}_2}+\frac{1}{\underline{Z}_3}
+\]
+\vfill
+\columnbreak
+\[
+	\underline{Z}_1 = \frac{\underline{Z}_{12} ~ \underline{Z}_{31}}{\underline{Z}_{ds}}
+\]
+\[
+	\underline{Z}_2 = \frac{\underline{Z}_{23} ~ \underline{Z}_{12}}{\underline{Z}_{ds}}
+\]
+\[
+	\underline{Z}_3 = \frac{\underline{Z}_{31} ~ \underline{Z}_{23}}{\underline{Z}_{ds}}
+\]
 
-\fancyformula{}{
-	\[
-		\underline{Z}_{23}=\frac{\underline{Z}_{2}*\underline{Z}_{3}}{\underline{Z}_{sd}}
-	\]
-}
+\[
+	\textnormal{mit} \quad \underline{Z}_{ds}=\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}
+\]
+\end{multicols}
 
-\fancyformula{}{
-	\[
-		\underline{Z}_{31}=\frac{\underline{Z}_{3}*\underline{Z}_{1}}{\underline{Z}_{sd}}
-	\]
-}
+\vspace{1.5em}
+\sffamily\textbf{Bei vollständiger Symmetrie:}
+\[
+	\underline Z_\triangle = 3 ~ Z_\Yup
+\]
 
-\fancyformula{}{
-	\[
-		mit \ \frac{1}{\underline{Z}_{sd}}=\frac{1}{\underline{Z}_1}+\frac{1}{\underline{Z}_2}+\frac{1}{\underline{Z}_3}
-	\]
-}
-
-\fancyformula{}{
-	\[
-		\underline{Z}_1=\frac{\underline{Z}_{12}*\underline{Z}_{31}}{\underline{Z}_{ds}}
-	\]
-}
-
-\fancyformula{}{
-	\[
-		\underline{Z}_2=\frac{\underline{Z}_{23}*\underline{Z}_{12}}{\underline{Z}_{ds}}
-	\]
-}
-
-\fancyformula{}{
-	\[
-		\underline{Z}_3=\frac{\underline{Z}_{31}*\underline{Z}_{23}}{\underline{Z}_{ds}}
-	\]
-}
-
-\fancyformula{}{
-	\[
-		mit \ \underline{Z}_{ds}=\underline{Z}_{12}+\underline{Z}_{23}+\underline{Z}_{31}
-	\]
-}
-
-\end{multicols}{2}
-
-
-\end{figure}
-
-
-
+\newpage
+\rmfamily
 
 \subsection*{Kenngrößen}
 \begin{center}
 \bgroup
 \begin{longtable}{r p{12cm}}
-	\textbf{Wirkleistung P} & Die vom Verbraucher in andere Leistungstypen(z.B. mechanische, thermische oder chemische) umgewandelte elektrische Leistung. Sie entspricht dem Realteil der Scheinleistung im Leistungszeigerdiagramm. Einheit: Watt[W] \\
+	\textbf{Wirkleistung P} & Die vom Verbraucher in andere Energieformen (z.B. mechanische, thermische oder chemische) umgewandelte elektrische Leistung. Sie entspricht dem Realteil der Scheinleistung im Leistungszeigerdiagramm. \newline Einheit: Watt [W] \\
 	[2mm]
-	\textbf{Blindleistung Q} & Der Teil der Gesamtenergie, der im Netz mit induktiven Verbraucher(z.B. Spule, Transformator, Asynchronmotor) zum Aufbau des Magnetfeldes bzw. im Netz mit kapazitiven Verbraucher(z.B. Kondensator, Erdkabel) zum Aufbau des elektrischen Feldes verwendet und beim Abbau wieder ans Netz zurückgegeben wird, wird als Blindleistung genannt. Sie entspricht dem Imaginärteil der Scheinleistung im Leistungszeigerdiagramm. Einheit:Voltampere Reaktiv[var] \\
+	\textbf{Blindleistung Q} & Der Teil der Gesamtenergie, der im Netz mit induktivem Verbraucher (z.B. Spule, Transformator, Asynchronmotor) zum Aufbau des Magnetfeldes bzw. im Netz mit kapazitivem Verbraucher (z.B. Kondensator, Erdkabel) zum Aufbau des elektrischen Feldes verwendet und beim Abbau wieder ans Netz zurückgegeben wird. Sie entspricht dem Imaginärteil der Scheinleistung im Leistungszeigerdiagramm.\newline
+	Einheit: Voltampere Reaktiv [var] \\
 	[2mm]
-	\textbf{Scheinleistung S} & Die Gesamtleistung von Wirkleistung und Blindleistung in der komplexen Ebene. Einheit: Voltampere[VA] \\
+	\textbf{Scheinleistung S} & Die vektorielle Addition von Wirk- und Blindleistungszeigern.\newline
+	Einheit: Voltampere [VA] \\
 	[2mm]
-	\pbox{20cm}{\textbf{Gegenstrom-} \\ \textbf{bremsbereich}} & In diesem Bereich sind die Richtungen von Läuferdrehung und Ständerdrehfeld entgegengesetzt. d.h. dass die Maschine sowohl mechanische(+) als auch elektrische(-) Leistung aufweist. Die beide Leistungen werden im Läufer in die Form von Kupferverlusten umgesetzt. \\
-	[6mm]
-	\pbox{20cm}{\textbf{Größen im} \\  \textbf{Drehstromnetz}} & Winkel: vom Strom zur Spannung \\
+	\pbox{20cm}{\textbf{Phasenverschiebung}} & Winkel $\varphi$: Gegen den Uhrzeigersinn vom Strom zur Spannung \\
 \end{longtable}
 \egroup
 \end{center}
+\begin{table}[H]
+\centering
+\begin{mdframed}[leftmargin=10pt,rightmargin=10pt]
+\begin{tabular}{r | r | r | r | l}
+	$Q > 0$ & $X > 0$ & $0 < \varphi < 180^\circ$ & $\sin(\varphi) > 0$ & Induktiver Verbraucher \\
+	$Q < 0$ & $X < 0$ & $-180^\circ < \varphi < 0$ & $\sin(\varphi) < 0$ & Kapazitiver Verbraucher
+\end{tabular}
+\end{mdframed}
+\end{table}
 
-\subsection*{Schein-,Wirk- \& Blindleistung Diagramm}
+\subsection*{Schein-, Wirk- \& Blindleistungsdiagramm}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/drehstrom_komplexe_leistung.pdf}
@@ -685,60 +694,67 @@ Die Belastung der Transformatoren erfolgt automatisch proportional zu den Nennle
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/drehstrom_Phasenwinkel.pdf}
 \end{figure}
+\end{spacing}
 
-\subsection*{Formeln}(nur für symmetrischen Fall)
+\subsection*{Gleichungen}
+Nur für symmetrischen Fall, d.h. $U_{L1} = U_{L2} = U_{L3} = U_\triangle$ und $U_{S1}  = U_{S2} = U_{S3} = U_\Yup$.
+\vspace{1em}
 \begin{multicols}{2}
-\fancyformula{}{
+\fancyformula{Spannungsangaben}{
 	\[
-		\textnormal{Scheitelwert}=\sqrt{2} \ \textnormal{Effektivwert}
+		\textnormal{Scheitelwert} = \sqrt{2} ~ \textnormal{Effektivwert}
+	\]
+	\[
+		\textnormal{Gesamtscheinleistung} = 3 ~ \textnormal{Strangleistung}
+	\]
+	\[
+		\textnormal{Dreieckspannung} = \sqrt{3} ~ \textnormal{Sternspannung}
 	\]
 }
 
-\fancyformula{}{
-	\[
-		\textnormal{Gesamtscheinleistung}=3 \ \textnormal{Strangleistung}
-	\]
-}
-
-\fancyformula{}{
-	\[
-		\textnormal{Dreieckspannung}=\sqrt{3} \ \textnormal{Sternspannung}
-	\]
-}
-
+\vspace{1em}
 \fancyformula{Scheinleistung S}{
 	\[
-		\underline{S} = \underline{U}*\underline{I}\textsuperscript{*}=P+j*Q=|\underline{S}|(cos(\varphi)+j*sin{\varphi})
+		\underline{S} = \underline{U} ~ \underline{I}\textsuperscript{*} = P + jQ = |\underline{S}| ~ (\cos(\varphi) + j \sin(\varphi))
 	\]
-	$cos(\varphi): Leistungsfaktor;\ sin{\varphi}: Blindfaktor$
 }
+\rmfamily
+mit
+\begin{tabular}{r p{5cm}}
+	$\cos(\varphi)$ & Leistungsfaktor \\
+	$\sin(\varphi)$ & Blindfaktor
+\end{tabular}
+\vspace{1em}
 
 \fancyformula{Betrag von S}{
 	\[
-		S=|\underline{S}|=UI=\sqrt{P\textsuperscript{2}+Q\textsuperscript{2}}
+		S = |\underline{S}| = U ~ I = \sqrt{P^2 + Q^2}
 	\]
 }
 
-\fancyformula{Dreieckschaltung}{
+\fancyformula{Dreieckschaltung $\triangle$}{
 	\[
-		I_{Str}=\frac{I_L}{\sqrt{3}}; \ U_L=U_{Str}; \
-		\underline{S}=3*\underline{U}_{L}*\underline{I}\textsuperscript{*}_{Str}=\frac{9U_{Sn}\textsuperscript{2}}{\underline{Z}_n\textsuperscript{2}}=\frac{3U_{L}\textsuperscript{2}}{\underline{Z}_n}
+		I_{Str}=\frac{I_L}{\sqrt{3}} ~~ \textnormal{und} ~~ U_{Str} = U_{\triangle} = U_L
+	\]
+	\[
+		\underline{S} = 3 ~ \underline{U}_\triangle ~ \underline I_{Str}^* = \frac{3 ~ U_\triangle^2}{\underline Z^*} = \frac{9 ~ U_\Yup^2}{\underline Z^*}
 	\]
 }
 
-\fancyformula{Sternschaltung}{
+\fancyformula{Sternschaltung $\Yup$}{
 	\[
-		I_{Str}=I_L; \ U_{Str}=\frac{U_L}{\sqrt{3}}; \
-		\underline{S}=3*\underline{U}_{Str}*\underline{I}\textsuperscript{*}_{L}=\frac{3U\textsuperscript{2}_{Sn}}{\underline{Z_n}\textsuperscript{*}}=\frac{{U_L}\textsuperscript{2}}{\underline{Z}_n\textsuperscript{*}}
+		I_{Str}=I_L ~~ \textnormal{und} ~~ \ U_{Str}=\frac{U_L}{\sqrt{3}}
+	\]
+	\[
+		\underline{S} = 3 ~ \underline U_{Str} ~ \underline I_L^* = \frac{3 ~ U_\Yup^2}{\underline Z^*} = \frac{U_\triangle^2}{\underline Z^*}
 	\]
 }
 \end{multicols}
-\end{spacing}
 
-
-
-
-
+\subsubsection*{Kapazität / Induktivität aus Reaktanz}
+\[
+	L = \frac{X_L}{\omega} ~~ \textnormal{und} ~~ C = \frac{1}{\omega X_C}
+\]
 
 \newpage
 \section*{Anhang}
