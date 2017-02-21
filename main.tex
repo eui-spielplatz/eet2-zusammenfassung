@@ -78,6 +78,7 @@ Sofern nicht anders beschrieben, gilt überall die Annahme $R_V = 0$!
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/gleichstrommaschine_leistungsbilanz.pdf}
+	\caption*{$s$ bezieht sich auf durch $U_a$ hervorgerufene Leerlaufdrehzahl}
 \end{figure}
 
 \subsection*{Kenngrößen}
@@ -144,13 +145,13 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 \begin{multicols}{2}
 \fancyformula{Grundgleichung: Induzierte Spannung}{
 	\[
-		U_i = K ~ \Phi ~ \Omega
+		U_i = K ~ \Phi ~ \Omega \implies \tfrac{U_i}{U_{iN}} = \tfrac{\Omega}{\Omega_N}
 	\]
 }
 
 \fancyformula{Grundgleichung: Inneres Drehmoment}{
 	\[
-		M_i = K ~ \Phi ~ I
+		M_i = K ~ \Phi ~ I \implies \tfrac{M_i}{M_{iN}} = \tfrac{I}{I_N}
 	\]
 }
 
@@ -180,7 +181,7 @@ Eine Flussänderung verändert sowohl das Stillstandsdrehmoment als auch die Lee
 	\]
 }
 
-\fancyformula{Induzierte Spannung aus Schlupf}{(folgt aus Leistungsbilanz)
+\fancyformula{Induzierte Spannung aus Schlupf}{(folgt aus $s \propto n$ für $\Phi = const.$, $s$ muss Schlupf bzgl. der durch $U$ hervorgerufenen Leerlaufdrehzahl sein)
 	\[
 		U_i = (1 - s) ~ U
 	\]
