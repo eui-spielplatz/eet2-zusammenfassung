@@ -2,6 +2,7 @@
 !*.tex
 !.gitignore
 !README.md
+!main.pdf
 !/img/
 !/img/*
 !/sources/

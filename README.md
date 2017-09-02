@@ -1,21 +1,22 @@
-# Elektrische Energietechnik II - Zusammenfassung
+# Zusammenfassung "Elektrische Energietechnik II"
+## [PDF herunterladen](main.pdf)
+Formelsammlung zur Vorlesung "Elektrische Energietechnik II" an der Universität Stuttgart vom Wintersemester 2016 / 2017. Ideal als Übersichtsblatt für Prüfungen oder als Vorlage für eigene Zusammenfassungen.
 
-## Inhalt
+### Kompilieren
+Das Dokument ist in Latex geschrieben. Zum Kompilieren kann folgender Befehl im Wurzelverzeichnis dieses Repositories ausgeführt werden:
+```bash
+pdflatex main.tex
+```
 
+Alternativ kann das fertige Dokument auch direkt unter obigem Link heruntergeladen werden.
+
+### Inhalt
 * Gleichstrommaschine
-* Transformator
 * Asynchronmaschine
 * Synchronmaschine
-* Drehstromverbraucher
+* Transformator
+* Allgemeiner Drehstromverbraucher
+* Anhang, u.a. mit Herleitung der Schlupfgerade der Asynchronmaschine im Heylandkreis
 
-## Inhalt jeder Maschine
-
-* Schaltbild
-* Leistungsbilanz
-* Kenngrößen (z.B. Kippmoment, Leerlaufspannung, ...) mit Erläuterungen
-* Diagramme (Ortskurve, Moment(Drehzahl)-Diagramm)
-* Formeln, möglichst für jede Maschine noch irgendwie sortiert
-
-## Bemerkungen
-
-* Maschinen visuell kennzeichen - farbiger Strich am Rand
+### Mitmachen
+Ergänzungen in Form vom Pull Requests sind jederzeit willkommen!
